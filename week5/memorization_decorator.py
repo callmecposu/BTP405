@@ -17,6 +17,7 @@ def argument_wrapper(func_name):
             callCache = None
             if funcCache:
                 callCache = funcCache.get(tuple(*args, **kwargs))
+            print(f'FuncCache: {funcCache} \nCallCache: {callCache}')
             if callCache:
                 return callCache
             result = func(*args, **kwargs)
@@ -36,7 +37,14 @@ def mySum(rng):
         sum += i
     return sum
 
+def myAvg(rng):
+    return mySum(rng) / len(rng)
 
-mySum(range(1,50000000))
-mySum(range(1,50000000))
+
+# mySum(range(1,50000000))
+# mySum(range(1,50000000))
+
+mySum(range(1,10))
+mySum(range(1,10))
+myAvg(range(1,10))
 
