@@ -33,9 +33,23 @@ def run():
         data = pickle.loads(raw)
         print('Deserialized object: ', data)
 
+        # specify the path to save a file
+        file_path = input('Enter the path where to save the received file: ')
+        try:
+            out_file = open(file_path, 'wb')
+            pickle.dump(data, out_file)
+            out_file.close()
+        except:
+            print('Error saving the file.\nExiting...')
+            client_sock.close()
+            serv_sock.close()
+            return
+
         client_sock.sendall('We good!'.encode())
 
         client_sock.close()
+
+        print(f'Client {client_addr} disconnected!')
 
 if __name__ == "__main__":
     run()
