@@ -9,7 +9,7 @@ import pickle
 # change this to store different data
 obj = {
     "name": "Bob",
-    "ge": 20,
+    "age": 20,
     "social_credit": -20.87
 }
 
